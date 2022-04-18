@@ -7,20 +7,15 @@
 int main(int argc, char *argv[])
 {
     int size = 4096;
-    int flags, opt;
-    int nsecs, tfnd;
-    nsecs = 0;
-    tfnd = 0;
-    flags = 0;
-    while ((opt = getopt(argc, argv, "b:")) != -1) {
-        switch (opt) {
-            case 'b':
-                size = atoi(optarg);
-                break;
-            default: /* '?' */
-                fprintf(stderr, "Использование: %s [-b nsecs] имя\n",
-                        argv[0]);
-                exit(EXIT_FAILURE);
+    int opt;
+    while ((opt = getopt(argc, argv, "b:")) != -1)
+    {
+        if (opt == 'b')
+            size = atoi(optarg);
+        else
+        {
+            fprintf(stderr, "Use: %s [-b size] block size\n", argv[0]);
+            exit(EXIT_FAILURE);
         }
     }
 
