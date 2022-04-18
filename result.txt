@@ -1,0 +1,18 @@
+
+stats results:
+A        33587200 bytes
+A.gz     65536 bytes
+B        98304 bytes
+B.gz     65536 bytes
+C        98304 bytes
+D        131072 bytes
+
+du results:
+A        4100 bytes
+A.gz     8 bytes
+B        12 bytes
+B.gz     8 bytes
+C        12 bytes
+D        16 bytes
+
+как и ожидалось, gzip одинаково хорошо сжимает и sparse файлы и заполненные. После разархивации программой создаётся sparse файл того же размера, что и был до архивации(тоже sparse)
